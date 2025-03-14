@@ -1,6 +1,21 @@
 spring:
   application:
     name: google-docs
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ${spring.application.name}-group
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  cassandra:
+    keyspace-name: processes
+    contact-points: cassandra:9042
+    username: cassandra
+    password: cassandra
+    schema-action: CREATE_IF_NOT_EXISTS
+    local-datacenter: datacenter1
 google-docs:
   module:
     uuid: 40fc9b0f-20f3-4dea-8e45-333eafe395a3
