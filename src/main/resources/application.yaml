@@ -2,7 +2,7 @@ spring:
   application:
     name: google-docs
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     consumer:
       group-id: ${spring.application.name}-group
       auto-offset-reset: earliest
